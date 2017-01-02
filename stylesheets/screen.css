@@ -67,14 +67,76 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 11, ../sass/screen.scss */
-h1 {
-  color: red;
-  font-size: 20px;
+/* line 50, ../sass/screen.scss */
+.back {
+  width: 540px;
+  height: 540px;
+  margin: 1em auto;
+  text-align: center;
+  overflow: auto;
+  background-color: #802A2A;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  border-radius: 100%;
+  z-index: 0;
 }
 
-/* line 16, ../sass/screen.scss */
-h2 {
-  color: blue;
-  font-size: 200px;
+/* line 61, ../sass/screen.scss */
+.pad-wrapper {
+  position: relative;
+  width: 532px;
+  height: 532px;
+  margin: 18px auto;
+  vertical-align: middle;
+  box-sizing: border-box;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  border-radius: 100%;
+}
+
+/* line 71, ../sass/screen.scss */
+.pad, .pad1, .pad2, .pad3, .pad4 {
+  z-index: 1;
+  width: 45%;
+  height: 45%;
+  display: inline-block;
+  margin: 5px;
+}
+
+/* line 79, ../sass/screen.scss */
+.pad1 {
+  background-color: #FF4136;
+  -webkit-border-top-left-radius: 100%;
+  -moz-border-top-left-radius: 100%;
+  -ms-border-top-left-radius: 100%;
+  border-top-left-radius: 100%;
+}
+
+/* line 84, ../sass/screen.scss */
+.pad2 {
+  background-color: #2ECC40;
+  -webkit-border-top-right-radius: 100%;
+  -moz-border-top-right-radius: 100%;
+  -ms-border-top-right-radius: 100%;
+  border-top-right-radius: 100%;
+}
+
+/* line 89, ../sass/screen.scss */
+.pad3 {
+  background-color: #FFDC00;
+  -webkit-border-bottom-left-radius: 100%;
+  -moz-border-bottom-left-radius: 100%;
+  -ms-border-bottom-left-radius: 100%;
+  border-bottom-left-radius: 100%;
+}
+
+/* line 94, ../sass/screen.scss */
+.pad4 {
+  background-color: #0074D9;
+  -webkit-border-bottom-right-radius: 100%;
+  -moz-border-bottom-right-radius: 100%;
+  -ms-border-bottom-right-radius: 100%;
+  border-bottom-right-radius: 100%;
 }

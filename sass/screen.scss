@@ -5,15 +5,98 @@
 
 @import "compass/reset";
 
-$red: red;
-$blue: blue;
+// Variables
+$blue: #0074D9;
+$green: #2ECC40;
+$yellow: #FFDC00;
+$red: #FF4136;
+$back-color: #802A2A; //Brown
 
-h1 {
-  color: $red;
-  font-size: 20px;
+
+// Mixins
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+@mixin border-top-left-radius($radius) {
+  -webkit-border-top-left-radius: $radius;
+     -moz-border-top-left-radius: $radius;
+      -ms-border-top-left-radius: $radius;
+          border-top-left-radius: $radius;
+}
+@mixin border-top-right-radius($radius) {
+  -webkit-border-top-right-radius: $radius;
+     -moz-border-top-right-radius: $radius;
+      -ms-border-top-right-radius: $radius;
+          border-top-right-radius: $radius;
+}
+@mixin border-bottom-left-radius($radius) {
+  -webkit-border-bottom-left-radius: $radius;
+     -moz-border-bottom-left-radius: $radius;
+      -ms-border-bottom-left-radius: $radius;
+          border-bottom-left-radius: $radius;
+}
+@mixin border-bottom-right-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+     -moz-border-bottom-right-radius: $radius;
+      -ms-border-bottom-right-radius: $radius;
+          border-bottom-right-radius: $radius;
 }
 
-h2 {
-  color: $blue;
-  font-size: 200px;
+
+// Styling
+.back {
+  width: 540px;
+  height: 540px;
+  margin: 1em auto;
+  text-align: center;
+  overflow: auto;
+  background-color: $back-color;
+  @include border-radius(100%);
+  z-index: 0;
+}
+
+.pad-wrapper {
+  position: relative;
+  width: 532px;
+  height: 532px;
+  margin: 18px auto;
+  vertical-align: middle;
+  box-sizing: border-box;
+  @include border-radius(100%);
+}
+
+.pad {
+  z-index: 1;
+  width: 45%;
+  height: 45%;
+  display: inline-block;
+  margin: 5px;
+}
+
+.pad1 {
+  @extend .pad;
+  background-color: $red;
+  @include border-top-left-radius(100%);
+}
+.pad2 {
+  @extend .pad;
+  background-color: $green;
+  @include border-top-right-radius(100%);
+}
+.pad3 {
+  @extend .pad;
+  background-color: $yellow;
+  @include border-bottom-left-radius(100%);
+}
+.pad4 {
+  @extend .pad;
+  background-color: $blue;
+  @include border-bottom-right-radius(100%);
+}
+
+.control-center {
+
 }
