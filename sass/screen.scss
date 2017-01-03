@@ -14,35 +14,25 @@ $back-color: #802A2A; //Brown
 
 
 // Mixins
+@mixin corner-border($position, $radius) {
+  -webkit-border-#{$position}-radius: $radius;
+     -moz-border-#{$position}-radius: $radius;
+      -ms-border-#{$position}-radius: $radius;
+          border-#{$position}-radius: $radius;
+}
+
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
       -ms-border-radius: $radius;
           border-radius: $radius;
 }
-@mixin border-top-left-radius($radius) {
-  -webkit-border-top-left-radius: $radius;
-     -moz-border-top-left-radius: $radius;
-      -ms-border-top-left-radius: $radius;
-          border-top-left-radius: $radius;
-}
-@mixin border-top-right-radius($radius) {
-  -webkit-border-top-right-radius: $radius;
-     -moz-border-top-right-radius: $radius;
-      -ms-border-top-right-radius: $radius;
-          border-top-right-radius: $radius;
-}
-@mixin border-bottom-left-radius($radius) {
-  -webkit-border-bottom-left-radius: $radius;
-     -moz-border-bottom-left-radius: $radius;
-      -ms-border-bottom-left-radius: $radius;
-          border-bottom-left-radius: $radius;
-}
-@mixin border-bottom-right-radius($radius) {
-  -webkit-border-bottom-right-radius: $radius;
-     -moz-border-bottom-right-radius: $radius;
-      -ms-border-bottom-right-radius: $radius;
-          border-bottom-right-radius: $radius;
+
+@mixin pad($verticalPos, $horizontalPos, $color) {
+  #{$verticalPos}: 0;
+  #{$horizontalPos}: 0;
+  background-color: $color;
+  margin: 18px;
 }
 
 
@@ -62,41 +52,52 @@ $back-color: #802A2A; //Brown
   position: relative;
   width: 532px;
   height: 532px;
-  margin: 18px auto;
+  margin: auto;
   vertical-align: middle;
   box-sizing: border-box;
   @include border-radius(100%);
 }
 
 .pad {
+  position: absolute;
   z-index: 1;
   width: 45%;
   height: 45%;
-  display: inline-block;
   margin: 5px;
 }
 
 .pad1 {
   @extend .pad;
-  background-color: $red;
-  @include border-top-left-radius(100%);
+  @include pad(top, left, $red);
+  @include corner-border(top-left, 100%);
+  margin-top: 24px;
 }
 .pad2 {
   @extend .pad;
-  background-color: $green;
-  @include border-top-right-radius(100%);
+  @include pad(top, right, $green);
+  @include corner-border(top-right, 100%);
+  margin-top: 24px;
 }
 .pad3 {
   @extend .pad;
-  background-color: $yellow;
-  @include border-bottom-left-radius(100%);
+  @include pad(bottom, left, $yellow);
+  @include corner-border(bottom-left, 100%);
 }
 .pad4 {
   @extend .pad;
-  background-color: $blue;
-  @include border-bottom-right-radius(100%);
+  @include pad(bottom, right, $blue);
+  @include corner-border(bottom-right, 100%);
 }
 
 .control-center {
-
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background-color: orange;
+  z-index: 10;
+  display: inline-block;
+  margin: 25% 0 0 -25%;
+  box-sizing: border-box;
+  border: 18px solid $back-color;
+  @include border-radius(100%);
 }

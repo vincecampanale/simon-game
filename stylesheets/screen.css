@@ -67,7 +67,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 50, ../sass/screen.scss */
+/* line 40, ../sass/screen.scss */
 .back {
   width: 540px;
   height: 540px;
@@ -82,12 +82,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   z-index: 0;
 }
 
-/* line 61, ../sass/screen.scss */
+/* line 51, ../sass/screen.scss */
 .pad-wrapper {
   position: relative;
   width: 532px;
   height: 532px;
-  margin: 18px auto;
+  margin: auto;
   vertical-align: middle;
   box-sizing: border-box;
   -webkit-border-radius: 100%;
@@ -96,47 +96,78 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   border-radius: 100%;
 }
 
-/* line 71, ../sass/screen.scss */
+/* line 61, ../sass/screen.scss */
 .pad, .pad1, .pad2, .pad3, .pad4 {
+  position: absolute;
   z-index: 1;
   width: 45%;
   height: 45%;
-  display: inline-block;
   margin: 5px;
 }
 
-/* line 79, ../sass/screen.scss */
+/* line 69, ../sass/screen.scss */
 .pad1 {
+  top: 0;
+  left: 0;
   background-color: #FF4136;
+  margin: 18px;
   -webkit-border-top-left-radius: 100%;
   -moz-border-top-left-radius: 100%;
   -ms-border-top-left-radius: 100%;
   border-top-left-radius: 100%;
+  margin-top: 24px;
 }
 
-/* line 84, ../sass/screen.scss */
+/* line 75, ../sass/screen.scss */
 .pad2 {
+  top: 0;
+  right: 0;
   background-color: #2ECC40;
+  margin: 18px;
   -webkit-border-top-right-radius: 100%;
   -moz-border-top-right-radius: 100%;
   -ms-border-top-right-radius: 100%;
   border-top-right-radius: 100%;
+  margin-top: 24px;
 }
 
-/* line 89, ../sass/screen.scss */
+/* line 81, ../sass/screen.scss */
 .pad3 {
+  bottom: 0;
+  left: 0;
   background-color: #FFDC00;
+  margin: 18px;
   -webkit-border-bottom-left-radius: 100%;
   -moz-border-bottom-left-radius: 100%;
   -ms-border-bottom-left-radius: 100%;
   border-bottom-left-radius: 100%;
 }
 
-/* line 94, ../sass/screen.scss */
+/* line 86, ../sass/screen.scss */
 .pad4 {
+  bottom: 0;
+  right: 0;
   background-color: #0074D9;
+  margin: 18px;
   -webkit-border-bottom-right-radius: 100%;
   -moz-border-bottom-right-radius: 100%;
   -ms-border-bottom-right-radius: 100%;
   border-bottom-right-radius: 100%;
+}
+
+/* line 92, ../sass/screen.scss */
+.control-center {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background-color: orange;
+  z-index: 10;
+  display: inline-block;
+  margin: 25% 0 0 -25%;
+  box-sizing: border-box;
+  border: 18px solid #802A2A;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  border-radius: 100%;
 }
