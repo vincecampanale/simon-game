@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-
+@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|VT323|Oswald');
 @import "compass/reset";
 
 // Variables
@@ -10,8 +10,18 @@ $blue: #0074D9;
 $green: #2ECC40;
 $yellow: #FFDC00;
 $red: #FF4136;
-$back-color: #802A2A; //Brown
+$back-color: grey * 0.5; //Brown
+$circle-color: #ECE7EE;
 
+* {
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+
+ /* Rules below not implemented in browsers yet */
+  -o-user-select: none;
+  user-select: none;
+}
 
 // Mixins
 @mixin corner-border($position, $radius) {
@@ -36,11 +46,21 @@ $back-color: #802A2A; //Brown
 }
 
 
+
 // Styling
+html{
+ // background-image: url('http://www.psdgraphics.com/file/wooden-background.jpg');
+ background-size: cover;
+}
+
+.inline {
+  display: inline-block;
+}
+
 .back {
   width: 540px;
   height: 540px;
-  margin: 1em auto;
+  margin: 2em auto;
   text-align: center;
   overflow: auto;
   background-color: $back-color;
@@ -64,6 +84,11 @@ $back-color: #802A2A; //Brown
   width: 45%;
   height: 45%;
   margin: 5px;
+  opacity: 0.7;
+}
+
+.pad:hover {
+  opacity: 1;
 }
 
 .pad1 {
@@ -72,17 +97,21 @@ $back-color: #802A2A; //Brown
   @include corner-border(top-left, 100%);
   margin-top: 24px;
 }
+
 .pad2 {
   @extend .pad;
   @include pad(top, right, $green);
   @include corner-border(top-right, 100%);
   margin-top: 24px;
 }
+
 .pad3 {
   @extend .pad;
   @include pad(bottom, left, $yellow);
   @include corner-border(bottom-left, 100%);
+  opacity: 0.8; //because 0.7 yellow looks bad
 }
+
 .pad4 {
   @extend .pad;
   @include pad(bottom, right, $blue);
@@ -93,11 +122,56 @@ $back-color: #802A2A; //Brown
   position: absolute;
   width: 50%;
   height: 50%;
-  background-color: orange;
+  background-color: $circle-color;
   z-index: 10;
   display: inline-block;
   margin: 25% 0 0 -25%;
   box-sizing: border-box;
-  border: 18px solid $back-color;
+  border: 12px solid $back-color;
+  text-align: center;
   @include border-radius(100%);
+}
+
+.brand{
+  font-family: 'Alfa Slab One', cursive;
+  color : #222;
+  font-size: 3.2em;
+  margin-top : 35px;
+  .small{
+    font-size : 0.3em;
+    position : relative;
+    top : -20px;
+  }
+}
+
+
+.clickable {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.unclickable {
+  pointer-events: none;
+}
+
+/* Scaling for Mobile */
+@media screen and (max-width: 500px){
+  .wrap {
+    top: 40px;
+
+    -moz-transform: scale(0.6);
+    -ms-transform: scale(0.6);
+    -o-transform: scale(0.6);
+    -webkit-transform: scale(0.6);
+    transform: scale(0.6);
+
+    -moz-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+
+    left: 50%;
+    margin-left: -142px;
+  }
 }
