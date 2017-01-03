@@ -218,20 +218,73 @@ html {
   top: -20px;
 }
 
-/* line 148, ../sass/screen.scss */
+/* line 147, ../sass/screen.scss */
+.row {
+  margin-top: 20px;
+}
+
+/* line 151, ../sass/screen.scss */
+.count-container {
+  position: relative;
+  margin-right: 10px;
+}
+
+/* line 156, ../sass/screen.scss */
+.count-display {
+  -webkit-border-radius: 20%;
+  -moz-border-radius: 20%;
+  -ms-border-radius: 20%;
+  border-radius: 20%;
+  color: #222;
+  background-color: #222;
+  font-size: 40px;
+  vertical-align: center;
+}
+
+/* line 164, ../sass/screen.scss */
+.count-label {
+  position: relative;
+  margin-top: 5px;
+}
+
+/* line 169, ../sass/screen.scss */
+.small-btn, .start-btn, .strict-btn {
+  position: relative;
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  margin: 10px auto;
+  border: 2px solid #767676;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  border-radius: 100%;
+}
+
+/* line 180, ../sass/screen.scss */
+.start-btn {
+  background-color: #FF4136;
+}
+
+/* line 185, ../sass/screen.scss */
+.strict-btn {
+  background-color: #FFDC00;
+}
+
+/* line 190, ../sass/screen.scss */
 .clickable {
   pointer-events: auto;
   cursor: pointer;
 }
 
-/* line 153, ../sass/screen.scss */
+/* line 195, ../sass/screen.scss */
 .unclickable {
   pointer-events: none;
 }
 
 /* Scaling for Mobile */
 @media screen and (max-width: 500px) {
-  /* line 159, ../sass/screen.scss */
+  /* line 201, ../sass/screen.scss */
   .wrap {
     top: 40px;
     -moz-transform: scale(0.6);

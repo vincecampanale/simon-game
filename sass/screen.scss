@@ -144,6 +144,48 @@ html{
   }
 }
 
+.row {
+  margin-top: 20px;
+}
+
+.count-container {
+  position: relative;
+  margin-right: 10px;
+}
+
+.count-display {
+  @include border-radius(20%);
+  color: #222;
+  background-color: #222;
+  font-size: 40px;
+  vertical-align: center;
+}
+
+.count-label {
+  position: relative;
+  margin-top: 5px;
+}
+
+.small-btn {
+  position: relative;
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  margin: 10px auto;
+  border: 2px solid darkgrey*0.7;
+  @include border-radius(100%);
+  // @include box-shadow
+}
+
+.start-btn {
+  @extend .small-btn;
+  background-color: $red;
+}
+
+.strict-btn {
+  @extend .small-btn;
+  background-color: $yellow;
+}
 
 .clickable {
   pointer-events: auto;
