@@ -68,7 +68,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 16, ../sass/screen.scss */
+/* line 17, ../sass/screen.scss */
 * {
   -webkit-user-select: none;
   /* Chrome/Safari */
@@ -81,17 +81,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   user-select: none;
 }
 
-/* line 51, ../sass/screen.scss */
+/* line 61, ../sass/screen.scss */
 html {
   background-size: cover;
 }
 
-/* line 56, ../sass/screen.scss */
+/* line 66, ../sass/screen.scss */
 .inline {
   display: inline-block;
 }
 
-/* line 60, ../sass/screen.scss */
+/* line 70, ../sass/screen.scss */
 .back {
   width: 540px;
   height: 540px;
@@ -106,7 +106,7 @@ html {
   z-index: 0;
 }
 
-/* line 71, ../sass/screen.scss */
+/* line 82, ../sass/screen.scss */
 .pad-wrapper {
   position: relative;
   width: 532px;
@@ -120,7 +120,7 @@ html {
   border-radius: 100%;
 }
 
-/* line 81, ../sass/screen.scss */
+/* line 91, ../sass/screen.scss */
 .pad, .pad1, .pad2, .pad3, .pad4 {
   position: absolute;
   z-index: 1;
@@ -130,12 +130,12 @@ html {
   opacity: 0.7;
 }
 
-/* line 90, ../sass/screen.scss */
+/* line 100, ../sass/screen.scss */
 .pad:hover, .pad1:hover, .pad2:hover, .pad3:hover, .pad4:hover {
   opacity: 1;
 }
 
-/* line 94, ../sass/screen.scss */
+/* line 104, ../sass/screen.scss */
 .pad1 {
   top: 0;
   left: 0;
@@ -148,7 +148,7 @@ html {
   margin-top: 24px;
 }
 
-/* line 101, ../sass/screen.scss */
+/* line 110, ../sass/screen.scss */
 .pad2 {
   top: 0;
   right: 0;
@@ -161,7 +161,7 @@ html {
   margin-top: 24px;
 }
 
-/* line 108, ../sass/screen.scss */
+/* line 116, ../sass/screen.scss */
 .pad3 {
   bottom: 0;
   left: 0;
@@ -174,7 +174,7 @@ html {
   opacity: 0.8;
 }
 
-/* line 115, ../sass/screen.scss */
+/* line 122, ../sass/screen.scss */
 .pad4 {
   bottom: 0;
   right: 0;
@@ -186,7 +186,7 @@ html {
   border-bottom-right-radius: 100%;
 }
 
-/* line 121, ../sass/screen.scss */
+/* line 129, ../sass/screen.scss */
 .control-center {
   position: absolute;
   width: 50%;
@@ -204,50 +204,54 @@ html {
   border-radius: 100%;
 }
 
-/* line 135, ../sass/screen.scss */
+/* line 144, ../sass/screen.scss */
 .brand {
   font-family: 'Alfa Slab One', cursive;
   color: #222;
   font-size: 3.2em;
   margin-top: 35px;
 }
-/* line 140, ../sass/screen.scss */
+/* line 149, ../sass/screen.scss */
 .brand .small {
   font-size: 0.3em;
   position: relative;
   top: -20px;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 156, ../sass/screen.scss */
 .row {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
-/* line 151, ../sass/screen.scss */
+/* line 160, ../sass/screen.scss */
 .count-container {
   position: relative;
   margin-right: 10px;
 }
 
-/* line 156, ../sass/screen.scss */
+/* line 164, ../sass/screen.scss */
 .count-display {
+  font-family: 'VT323', monospace;
+  color: #DC0D29;
+  position: relative;
+  padding: 0px;
+  font-size: 2em;
+  width: 50px;
+  background-color: #32050C;
+  border: 4px solid #222;
+  margin: auto;
   -webkit-border-radius: 20%;
   -moz-border-radius: 20%;
   -ms-border-radius: 20%;
   border-radius: 20%;
-  color: #222;
-  background-color: #222;
-  font-size: 40px;
-  vertical-align: center;
 }
 
-/* line 164, ../sass/screen.scss */
-.count-label {
-  position: relative;
-  margin-top: 5px;
+/* line 178, ../sass/screen.scss */
+.btn-container {
+  margin-left: 10px;
 }
 
-/* line 169, ../sass/screen.scss */
+/* line 181, ../sass/screen.scss */
 .small-btn, .start-btn, .strict-btn {
   position: relative;
   box-sizing: border-box;
@@ -259,32 +263,128 @@ html {
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
   border-radius: 100%;
+  -webkit-box-shadow: 1px 0px 1px #222;
+  -moz-box-shadow: 1px 0px 1px #222;
+  box-shadow: 1px 0px 1px #222;
+  -webkit-box-shadow: 0px 1px 1px #222;
+  -moz-box-shadow: 0px 1px 1px #222;
+  box-shadow: 0px 1px 1px #222;
+  -webkit-box-shadow: 1px 2px 1px #222;
+  -moz-box-shadow: 1px 2px 1px #222;
+  box-shadow: 1px 2px 1px #222;
+  -webkit-box-shadow: 2px 1px 1px #222;
+  -moz-box-shadow: 2px 1px 1px #222;
+  box-shadow: 2px 1px 1px #222;
+  -webkit-box-shadow: 3px 2px 1px #222;
+  -moz-box-shadow: 3px 2px 1px #222;
+  box-shadow: 3px 2px 1px #222;
+  -webkit-box-shadow: 2px 3px 1px #222;
+  -moz-box-shadow: 2px 3px 1px #222;
+  box-shadow: 2px 3px 1px #222;
 }
 
-/* line 180, ../sass/screen.scss */
+/* line 196, ../sass/screen.scss */
+.small-btn:active, .start-btn:active, .strict-btn:active {
+  -webkit-box-shadow: 1px 0px 1px #222;
+  -moz-box-shadow: 1px 0px 1px #222;
+  box-shadow: 1px 0px 1px #222;
+  -webkit-box-shadow: 0px 1px 1px #222;
+  -moz-box-shadow: 0px 1px 1px #222;
+  box-shadow: 0px 1px 1px #222;
+  transform: translate(2px, 2px);
+}
+
+/* line 201, ../sass/screen.scss */
 .start-btn {
   background-color: #FF4136;
 }
 
-/* line 185, ../sass/screen.scss */
+/* line 205, ../sass/screen.scss */
 .strict-btn {
   background-color: #FFDC00;
 }
 
-/* line 190, ../sass/screen.scss */
+/* line 211, ../sass/screen.scss */
+.label, .count-label, .start-label, .strict-label {
+  position: relative;
+  color: #222;
+  font-family: 'Oswald',Arial,sans;
+  font-size: 0.7em;
+  margin-top: 5px;
+  text-align: center;
+}
+
+/* line 230, ../sass/screen.scss */
+.led {
+  position: relative;
+  margin: 5px auto auto auto;
+  width: 6px;
+  height: 6px;
+  background-color: #32050C;
+  border: 2px solid #222;
+  z-index: 2000;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  border-radius: 100%;
+}
+
+/* line 240, ../sass/screen.scss */
+.led.on {
+  background-color: #DC0D29;
+}
+
+/* line 245, ../sass/screen.scss */
+.switch {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  background-color: #404040;
+  margin-bottom: -5px;
+  -webkit-border-radius: 12%;
+  -moz-border-radius: 12%;
+  -ms-border-radius: 12%;
+  border-radius: 12%;
+}
+
+/* line 253, ../sass/screen.scss */
+.switch-block {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  background-color: #0074D9;
+  border: 1px solid black;
+  box-sizing: border-box;
+  margin: 1px 0 1px 1px;
+  -webkit-border-radius: 12%;
+  -moz-border-radius: 12%;
+  -ms-border-radius: 12%;
+  border-radius: 12%;
+}
+
+/* line 263, ../sass/screen.scss */
+.switch-block.toggled {
+  margin-left: 16px;
+}
+
+/* line 266, ../sass/screen.scss */
+.bottom.row {
+  margin-top: 24px;
+}
+
+/* line 271, ../sass/screen.scss */
 .clickable {
   pointer-events: auto;
   cursor: pointer;
 }
 
-/* line 195, ../sass/screen.scss */
+/* line 275, ../sass/screen.scss */
 .unclickable {
   pointer-events: none;
 }
 
-/* Scaling for Mobile */
 @media screen and (max-width: 500px) {
-  /* line 201, ../sass/screen.scss */
+  /* line 282, ../sass/screen.scss */
   .wrap {
     top: 40px;
     -moz-transform: scale(0.6);
