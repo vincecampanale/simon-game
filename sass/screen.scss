@@ -216,15 +216,11 @@ html{
   margin-top:5px;
   text-align:center;
 }
-.count-label {
+.count-label, .start-label, .strict-label, .off-label, .on-label {
   @extend .label;
 }
-.start-label {
-  @extend .label;
-}
-.strict-label {
-  @extend .label;
-}
+
+
 
 //Little light above the strict button
 .led{
@@ -261,7 +257,7 @@ html{
   @include border-radius(12%);
 }
 .switch-block.toggled {
-  margin-left: 16px;
+  margin-left: 17px;
 }
 .bottom.row{
   margin-top: 24px;

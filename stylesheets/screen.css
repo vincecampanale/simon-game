@@ -305,7 +305,7 @@ html {
 }
 
 /* line 211, ../sass/screen.scss */
-.label, .count-label, .start-label, .strict-label {
+.label, .count-label, .start-label, .strict-label, .off-label, .on-label {
   position: relative;
   color: #222;
   font-family: 'Oswald',Arial,sans;
@@ -314,7 +314,7 @@ html {
   text-align: center;
 }
 
-/* line 230, ../sass/screen.scss */
+/* line 226, ../sass/screen.scss */
 .led {
   position: relative;
   margin: 5px auto auto auto;
@@ -329,12 +329,12 @@ html {
   border-radius: 100%;
 }
 
-/* line 240, ../sass/screen.scss */
+/* line 236, ../sass/screen.scss */
 .led.on {
   background-color: #DC0D29;
 }
 
-/* line 245, ../sass/screen.scss */
+/* line 241, ../sass/screen.scss */
 .switch {
   position: relative;
   width: 36px;
@@ -347,7 +347,7 @@ html {
   border-radius: 12%;
 }
 
-/* line 253, ../sass/screen.scss */
+/* line 249, ../sass/screen.scss */
 .switch-block {
   position: relative;
   width: 18px;
@@ -362,29 +362,29 @@ html {
   border-radius: 12%;
 }
 
-/* line 263, ../sass/screen.scss */
+/* line 259, ../sass/screen.scss */
 .switch-block.toggled {
-  margin-left: 16px;
+  margin-left: 17px;
 }
 
-/* line 266, ../sass/screen.scss */
+/* line 262, ../sass/screen.scss */
 .bottom.row {
   margin-top: 24px;
 }
 
-/* line 271, ../sass/screen.scss */
+/* line 267, ../sass/screen.scss */
 .clickable {
   pointer-events: auto;
   cursor: pointer;
 }
 
-/* line 275, ../sass/screen.scss */
+/* line 271, ../sass/screen.scss */
 .unclickable {
   pointer-events: none;
 }
 
 @media screen and (max-width: 500px) {
-  /* line 282, ../sass/screen.scss */
+  /* line 278, ../sass/screen.scss */
   .wrap {
     top: 40px;
     -moz-transform: scale(0.6);
