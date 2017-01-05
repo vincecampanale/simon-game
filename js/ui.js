@@ -1,17 +1,19 @@
-var switchToggle = document.getElementsByClassName("switch")[0];
-var switchBlock = document.getElementsByClassName("switch-block")[0];
-var countDisplay = document.getElementsByClassName("count-display")[0];
-var strictToggle = document.getElementsByClassName("strict-btn")[0];
+const switchToggle = document.querySelector(".switch");
+const switchBlock = document.querySelector(".switch-block");
+const countDisplay = document.querySelector(".count-display");
+const strictButton = document.querySelector(".strict-btn");
+const strictLed = document.querySelector(".led");
 
 function powerSwitch() {
   switchToggle.addEventListener("click", function() {
     if(switchBlock.className === "switch-block toggled"){
       switchBlock.className = switchBlock.className.substring(0, 12);
+      activateStrictButton();
       showCount();
     } else {
       switchBlock.className = "switch-block toggled";
+      activateStrictButton();
       showCount();
-      toggleStrictMode(); //only allow strict mode to be toggled if game is turned on
     }
   });
 }
@@ -25,21 +27,22 @@ function showCount() {
   }
 }
 
+function activateStrictButton() {
+  strictButton.addEventListener("click", function() {
+    toggleStrictMode();
+  });
+}
 function toggleStrictMode() {
-    strictToggle.addEventListener("click", function() {
-      var strictLed = document.getElementsByClassName("led")[0];
-      if(switchBlock.className === "switch-block toggled"){
-        if(strictLed.className === "led led-on"){
-          strictLed.className = strictLed.className.substring(0, 3);
-        } else {
-          strictLed.className = "led led-on";
-        }
-      }
-    });
+  if(switchBlock.className === "switch-block toggled"){
+    if(strictLed.className === "led led-on"){
+      strictLed.className = strictLed.className.substring(0, 3);
+    } else {
+      strictLed.className = "led led-on";
+    }
+  }
 }
 
 powerSwitch();
-showCount();
 
 
 
