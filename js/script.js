@@ -8,3 +8,7 @@ switchToggle[0].addEventListener("click", function() {
     theSwitch.className = "switch-block toggled";
   }
 });
+
+
+Approach:
+  
