@@ -6,22 +6,23 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Simon Game</title>
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="img/favicon.ico"/>
   <!--[if IE]>
       <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
   <![endif]-->
 </head>
 <body>
-  <audio src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"></audio>
-  <audio src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"></audio>
-  <audio src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"></audio>
-  <audio src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"></audio>
+  <audio data-sound="1" src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"></audio>
+  <audio data-sound="2" src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"></audio>
+  <audio data-sound="3" src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"></audio>
+  <audio data-sound="4" src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"></audio>
 
   <div class="back">
     <div class="pad-wrapper">
-      <div class="pad1"></div>
-      <div class="pad2"></div>
-      <div class="pad3"></div>
-      <div class="pad4"></div>
+      <div data-pad="1" class="pad1"></div>
+      <div data-pad="2" class="pad2"></div>
+      <div data-pad="3" class="pad3"></div>
+      <div data-pad="4" class="pad4"></div>
       <div class="control-center">
         <h1 class="brand">Simon<span class="small">®</span></h1>
         <div class="row">
@@ -51,5 +52,6 @@
   </div>
 
   <script src="js/ui.js"></script>
+  <script src="js/game.js"></script>
 </body>
 </html>
