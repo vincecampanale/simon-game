@@ -7,14 +7,17 @@ const UI = {
   //toggle the power switch to on or off on click
   powerSwitch: function powerSwitch() {
     UI.switchToggle.addEventListener("click", function() {
-      if(UI.switchBlock.className === "switch-block toggled"){
-        UI.switchBlock.className = UI.switchBlock.className.substring(0, 12);
-        UI.activateStrictButton();
-        UI.loadCountDisplay();
-      } else {
+      if(UI.switchBlock.className === "switch-block"){
         UI.switchBlock.className = "switch-block toggled";
         UI.activateStrictButton();
         UI.loadCountDisplay();
+        Game.status = "on";
+      } else {
+        UI.switchBlock.className = "switch-block";
+        UI.activateStrictButton();
+        UI.loadCountDisplay();
+        Game.status = "off";
+        UI.strictLED.className = "led"; //turn off strictLED light
       }
     });
   },
@@ -36,10 +39,10 @@ const UI = {
   //turn on/off the LED above strict button
   toggleStrictLED: function toggleStrictLED() {
     if(UI.switchBlock.className === "switch-block toggled"){
-      if(UI.strictLED.className === "led led-on"){
-        UI.strictLED.className = UI.strictLED.className.substring(0, 3);
-      } else {
+      if(UI.strictLED.className === "led"){
         UI.strictLED.className = "led led-on";
+      } else {
+        UI.strictLED.className = "led";
       }
     }
   }
