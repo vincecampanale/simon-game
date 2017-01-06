@@ -3,22 +3,23 @@ const Game = {
   status: "off", //game starts out as off
   strictMode: false,
   count: 0, //initialize at 0
-  currentPattern: [], //initialize to empty array
+  gamePattern: [], //initialize to empty array
   playerPattern: [], //initialize to empty array
+  currentIndex: -1, //the index to compare the player's click to (initialize at -1 bc first click will update to index 0)
   start: function start() {
-    //increment the count by 1
-    //pick a random number between 1 and 4 for the first number
+    Game.incrementCount(); //increment the count to 1
+    Game.gamePattern.push(Game.generateRandomNumber());//generate a random number and load that number into the pattern
+    console.log(Game.gamePattern);
     //play the pattern
   },
   incrementCount: function incrementCount() {
     Game.count++;
-    //display the count to the count display
-
+    UI.updateCountDisplay();
   },
   //allows user to click pads
   handlePlayerClick: function handlePlayerClick() {
     //add click event listeners to all the pads
-    //record the number of the clicked pad
+    //record the number of the clicked pad (push it to playPattern)
     //if click is correct (if playerPattern[index] = currentPattern[index]),
       //play the sound
       //if playerPattern.length === currentPattern.length
@@ -42,6 +43,19 @@ const Game = {
   },
   setInterval: function setInterval(patternLength) {
     //set interval in between each sound/light based on the length of the pattern array
+  },
+  //return a random integer between 1 and 4
+  generateRandomNumber: function generateRandomNumber() {
+    const randomNumber = Math.floor(Math.random() * 4) + 1; //pick integer between 1 and 4
+    return randomNumber;
+  },
+  reset: function reset() {
+    UI.strictLED.className = "led"; //turn off strictLED light
+
+    Game.count = 0; //set count back to 0
+    Game.playerPattern = []; //clear player pattern
+    Game.gamePattern = []; //clear game pattern
+    Game.currentIndex = -1;
   }
 }
 
