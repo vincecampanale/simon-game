@@ -47,9 +47,3 @@ const UI = {
     }
   }
 }
-
-// Approach:
-//   - Game object
-//     - strict mode: on or off
-//     - current series of sounds
-//     -

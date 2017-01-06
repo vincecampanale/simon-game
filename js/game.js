@@ -1,15 +1,37 @@
 const Game = {
   //Properties
   status: "off", //game starts out as off
+  strictMode: false,
+  count: 0, //initialize at 0
+  currentPattern: [], //initialize to empty array
+  playerPattern: [], //initialize to empty array
+  start: function start() {
+    //increment the count by 1
+    //pick a random number between 1 and 4 for the first number
+    //play the pattern
+  },
+  incrementCount: function incrementCount() {
+    Game.count++;
+    //display the count to the count display
+
+  },
   //allows user to click pads
-  allowUserInput: function allowUserInput() {
+  handlePlayerClick: function handlePlayerClick() {
     //add click event listeners to all the pads
     //record the number of the clicked pad
-    //if click is correct, play the sound and wait for next click
+    //if click is correct (if playerPattern[index] = currentPattern[index]),
+      //play the sound
+      //if playerPattern.length === currentPattern.length
+        //incrementCount
+        //add to pattern
+        //play new Pattern
+        // (unless new Pattern.length > 20 ==> in that case, reset the game and create "Congratulations! You win!"  window)
+      //else wait for next click (handlePlayerClick again)
     //if click is incorrect,
       //play error sound
+      //display "!!" in count
       //if strict mode, reset count to 01, reset game
-      //else reset user pattern
+      //else only reset user pattern
   },
   //takes in an array which is the pattern to play, plays corresponding pads/sounds,
   playPattern: function playPattern(arr) {
@@ -40,11 +62,6 @@ function removeTransition(e) {
   if(e.propertyName !== 'transform') return; //only pay attention to the end of an event with propertyName "transform"
   this.classList.remove('playing');
 }
-
-clickToPlaySound(1);
-clickToPlaySound(2);
-clickToPlaySound(3);
-clickToPlaySound(4);
 
 
 // Game Object:
