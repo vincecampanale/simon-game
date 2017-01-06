@@ -1,15 +1,37 @@
-function clickToPlaySound(padNumber, soundNumber) {
-  const pad = document.querySelector(`div[data-pad="${padNumber}"]`);
-  const sound = document.querySelector(`audio[data-sound="${soundNumber}"]`);
+const Game = {
+  
+}
+
+
+
+
+
+function clickToPlaySound(num) {
+  const pad = document.querySelector(`div[data-pad="${num}"]`);
+  const sound = document.querySelector(`audio[data-sound="${num}"]`);
   pad.addEventListener("click", function() {
     sound.play();
   });
 }
 
-clickToPlaySound(1,1);
-clickToPlaySound(2,2);
-clickToPlaySound(3,3);
-clickToPlaySound(4,4);
+function playSoundAndLightPad(num) {
+  const pad = document.querySelector(`div[data-pad="${num}"]`);
+  const sound = document.querySelector(`audio[data-sound="${num}"]`);
+
+  sound.play();
+}
+
+function removeTransition(e) {
+  if(e.propertyName !== 'transform') return; //only pay attention to the end of an event with propertyName "transform"
+  this.classList.remove('playing');
+}
+
+//playSoundAndLightPad(1);
+
+clickToPlaySound(1);
+clickToPlaySound(2);
+clickToPlaySound(3);
+clickToPlaySound(4);
 
 
 // Game Object:
