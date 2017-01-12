@@ -37,10 +37,7 @@ const Game = {
   },
   //takes in an array which is the pattern to play, plays corresponding pads/sounds,
   playPattern: function playPattern(padNumbers) {
-    padNumbers.forEach(function playPad(padNumber){
-      Pad.playSound(padNumber);
-      Pad.lightUp(padNumber);
-    });
+    padNumbers.forEach(padNumber => Pad.play(padNumber));
     //for each number in array
       //play the sound with the associated number
       //light up the pad with the associated number
@@ -66,14 +63,17 @@ const Game = {
 
 const Pad = {
   //play the pad sound
-  playSound: function playSound(num) {
+  play: function play(num) {
     const sound = document.querySelector(`audio[data-sound="${num}"]`);
+    const pad = document.querySelector(`div[data-pad="${num}"]`);
+    if (!sound || !pad) return; //if number is invalid, stop the function from running altogether
+    pad.classList.add('playing');
+    sound.currentTime = 0; //rewind sound to the start to be safe
     sound.play();
   },
-  //light up the pad
-  lightUp: function lightUp(num) {
-    const pad = document.querySelector(`div[data-pad="${num}"]`);
-    console.log(pad);
+  removeTransition: function removeTransition() {
+    const pads = document.querySelectorAll('.pad');
+    pads.forEach(pad => pad.addEventListener)
   }
 }
 
