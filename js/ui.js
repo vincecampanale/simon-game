@@ -21,6 +21,7 @@ const UI = {
         UI.loadCountDisplay();
         Game.status = "off";
         UI.strictLED.className = "led";
+        Game.reset();
       }
     });
   },

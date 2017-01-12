@@ -11,7 +11,7 @@ const Game = {
     Game.incrementCount(); //increment the count to 1
     Game.gamePattern.push(Game.generateRandomNumber());//generate a random number and load that number into the pattern
     console.log(Game.gamePattern);
-    //play the pattern
+    Game.playPattern(Game.gamePattern);
   },
   incrementCount: function incrementCount() {
     Game.count++;
@@ -36,7 +36,11 @@ const Game = {
       //else only reset user pattern
   },
   //takes in an array which is the pattern to play, plays corresponding pads/sounds,
-  playPattern: function playPattern(arr) {
+  playPattern: function playPattern(padNumbers) {
+    padNumbers.forEach(function playPad(padNumber){
+      Pad.playSound(padNumber);
+      Pad.lightUp(padNumber);
+    });
     //for each number in array
       //play the sound with the associated number
       //light up the pad with the associated number
@@ -68,7 +72,8 @@ const Pad = {
   },
   //light up the pad
   lightUp: function lightUp(num) {
-    
+    const pad = document.querySelector(`div[data-pad="${num}"]`);
+    console.log(pad);
   }
 }
 
