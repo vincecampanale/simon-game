@@ -11,7 +11,7 @@ const Game = {
     Game.incrementCount(); //increment the count to 1
     Game.gamePattern.push(Game.generateRandomNumber());//generate a random number and load that number into the pattern
     console.log(Game.gamePattern);
-    Game.playPattern(Game.gamePattern);
+    Game.playPattern([2,4,1]);
   },
   incrementCount: function incrementCount() {
     Game.count++;
@@ -37,14 +37,23 @@ const Game = {
   },
   //takes in an array which is the pattern to play, plays corresponding pads/sounds,
   playPattern: function playPattern(padNumbers) {
-    padNumbers.forEach(padNumber => Pad.play(padNumber));
-    //for each number in array
-      //play the sound with the associated number
-      //light up the pad with the associated number
-      //(on an interval )
+    const interval = Game.setInterval(padNumbers.length);
+    padNumbers.forEach(function(padNumber, index) {
+      setTimeout(Pad.play.bind(null, padNumber), index * interval);
+    });
   },
+  //set interval in between each sound/light based on the length of the pattern array
   setInterval: function setInterval(patternLength) {
-    //set interval in between each sound/light based on the length of the pattern array
+    const intervalLengths = [1000, 750, 500, 250];
+    if(patternLength > 12) {
+      return intervalLengths[3];
+    } else if (patternLength > 8) {
+      return intervalLengths[2];
+    } else if (patternLength > 4) {
+      return intervalLengths[1];
+    } else {
+      return intervalLengths[0];
+    }
   },
   //return a random integer between 1 and 4
   generateRandomNumber: function generateRandomNumber() {
