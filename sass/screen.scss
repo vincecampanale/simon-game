@@ -86,7 +86,9 @@ html{
   z-index: 0;
 }
 
-//Pad styling
+//////////////////
+///////PADS///////
+//////////////////
 .pad-wrapper {
   position: relative;
   width: 532px;
@@ -104,7 +106,7 @@ html{
   margin: 5px;
   opacity: 0.65;
   display: inline-block;
-  transition:all 0.08s;
+  transition:all 0.12s;
 }
 .pad:hover {
   opacity: 1;
@@ -139,7 +141,9 @@ html{
   @include corner-border(bottom-right, 100%);
 }
 
-//CENTER CONSOLE
+//////////////////
+//CENTER CONSOLE//
+//////////////////
 .control-center {
   position: absolute;
   width: 50%;
@@ -230,8 +234,6 @@ html{
   @extend .label;
 }
 
-
-
 //Little light above the strict button
 .led{
   position: relative;
@@ -272,6 +274,8 @@ html{
 .bottom.row{
   margin-top: 24px;
 }
+
+
 
 //Can I click a thing or nah?
 .clickable {

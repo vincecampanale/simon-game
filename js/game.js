@@ -53,7 +53,6 @@ const Game = {
   },
   reset: function reset() {
     UI.strictLED.className = "led"; //turn off strictLED light
-
     Game.count = 0; //set count back to 0
     Game.playerPattern = []; //clear player pattern
     Game.gamePattern = []; //clear game pattern
@@ -62,39 +61,28 @@ const Game = {
 }
 
 const Pad = {
-  //play the pad sound
+  //play the pad (light it up and make the accompanying sound)
   play: function play(num) {
     const sound = document.querySelector(`audio[data-sound="${num}"]`);
     const pad = document.querySelector(`div[data-pad="${num}"]`);
+
     if (!sound || !pad) return; //if number is invalid, stop the function from running altogether
-    pad.classList.add('playing');
+
+    pad.classList.add('playing'); //make the pad a little bigger and light up
+
     sound.currentTime = 0; //rewind sound to the start to be safe
-    sound.play();
+    sound.play(); //play the sound
+
+    Pad.revertToNormal(); //after the pad does it's thing, revert it back to normal
   },
-  removeTransition: function removeTransition() {
+  //revert the pad back to its normal size and color (remove the "playing" class)
+  revertToNormal: function revertToNormal() {
     const pads = document.querySelectorAll('.pad');
-    pads.forEach(pad => pad.addEventListener)
+    pads.forEach(pad => pad.addEventListener('transitionend', Pad.removeTransition));
+  },
+  //helper function to remove the transition from the pad. Used in 'revertToNormal' function
+  removeTransition: function removeTransition(e) {
+    if(e.propertyName !== 'transform') return; //only pay attention to the end of an event with propertyName "transform"
+    this.classList.remove('playing');
   }
 }
-
-
-function removeTransition(e) {
-  if(e.propertyName !== 'transform') return; //only pay attention to the end of an event with propertyName "transform"
-  this.classList.remove('playing');
-}
-
-
-// Game Object:
-//   Properties:
-//     - power (values: on / off)
-//     - count (starts at 01 - increment by 1 every time the user successfully inputs the pattern)
-//     - current pattern (a random pattern of pad sounds - add a new sound on every time the user successfull inputs the pattern)
-//   Methods:
-//     - allow user to click
-//     - record user pattern
-//     - play current pattern
-//     - check user pattern vs. current pattern
-//     - start over (if user pattern does not match up with current pattern)
-//     - add sound to pattern
-//     - play error sound
-//     - go to next turn (increment count, change count display, add sound to pattern, begin playing new pattern)
