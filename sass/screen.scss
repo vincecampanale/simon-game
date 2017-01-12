@@ -63,9 +63,9 @@ $display-red: #DC0D29;
   @include box-shadow(2px, 3px, 1px, #222);
 }
 
-
-
-// BACKGROUND & GAME
+//////////////////
+/////BG & Game////
+//////////////////
 html{
  // background-image: url('http://www.psdgraphics.com/file/wooden-background.jpg');
  background-size: cover;
@@ -115,7 +115,7 @@ html{
 .playing {
   opacity: 1.2;
   transform: scale(1.02);
-  @include box-shadow(1px, 1px, 1px, #fffc00);
+  @include box-shadow(1px, 1px, 1px, #000);
 }
 
 .pad1 {

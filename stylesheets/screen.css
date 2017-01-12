@@ -142,9 +142,9 @@ html {
 .playing {
   opacity: 1.2;
   transform: scale(1.02);
-  -webkit-box-shadow: 1px 1px 1px #fffc00;
-  -moz-box-shadow: 1px 1px 1px #fffc00;
-  box-shadow: 1px 1px 1px #fffc00;
+  -webkit-box-shadow: 1px 1px 1px #000;
+  -moz-box-shadow: 1px 1px 1px #000;
+  box-shadow: 1px 1px 1px #000;
 }
 
 /* line 121, ../sass/screen.scss */
