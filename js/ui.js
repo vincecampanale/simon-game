@@ -40,9 +40,11 @@ const UI = {
       UI.countDisplay.innerHTML = Game.count.toString();
     }
   },
+  //make the start button clickable
   activateStartButton: function activateStartButton() {
     UI.startButton.addEventListener("click", Game.start);
   },
+  //do not allow the start button to be clicked
   deactivateStartButton: function deactivateStartButton() {
     UI.startButton.removeEventListener("click", Game.start);
   },

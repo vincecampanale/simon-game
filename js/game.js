@@ -7,6 +7,7 @@ const Game = {
   playerPattern: [], //initialize to empty array
   currentIndex: -1, //the index to compare the player's click to (initialize at -1 bc first click will update to index 0)
   start: function start() {
+    UI.deactivateStartButton();
     Game.incrementCount(); //increment the count to 1
     Game.gamePattern.push(Game.generateRandomNumber());//generate a random number and load that number into the pattern
     console.log(Game.gamePattern);
@@ -67,7 +68,7 @@ const Pad = {
   },
   //light up the pad
   lightUp: function lightUp(num) {
-
+    
   }
 }
 
