@@ -1,3 +1,5 @@
+//TODO: Toggle clickability
+
 const Game = {
   //Properties
   status: "off", //game starts out as off
@@ -34,33 +36,22 @@ const Game = {
       if (Game.playerPattern[Game.currentIndex] == Game.gamePattern[Game.currentIndex]) { //if playerPattern matches gamePattern at current index
         Pad.play(padNumber); //play the pad
         if (Game.playerPattern.length === Game.gamePattern.length) { //if the player has completed the game pattern
-          setTimeout(() => Game.incrementCount(), 250); //pause for a moment before incrementing the count
+          setTimeout(() => Game.incrementCount(), 500); //pause for a moment before incrementing the count
           Game.gamePattern.push(Game.generateRandomNumber()); //add new pad to game pattern
           Game.playerPattern = []; //reset player pattern
           Game.currentIndex = -1;
           setTimeout(() => Game.playPattern(Game.gamePattern), 1250); //wait 1250ms, then play the new game pattern
+          // TODO: (unless gamePattern.length > 20 ==> in that case, reset the game and create "Congratulations! You win!" window)
         }
       } else {
-        Pad.errorSound(); // if it isn't, play the error sound
-        //check for strict mode
+        Game.playerPattern.pop(); //pop most recent pad number off of playerPattern
+        Pad.wrongPad(padNumber); // if incorrect pad, play the error sound, display "!!" in count
+        //check for strict mode -- if strict mode, restart game.
       }
-
-
-
     }
-    //if click is correct (if playerPattern[index] = currentPattern[index]),
-      //play the sound
-      //if playerPattern.length === currentPattern.length
-        //incrementCount
-        //add to pattern
-        //play new Pattern
-        // (unless new Pattern.length > 20 ==> in that case, reset the game and create "Congratulations! You win!"  window)
-      //else wait for next click (handlePlayerClick again)
-    //if click is incorrect,
-      //play error sound
-      //display "!!" in count
-      //if strict mode, reset count to 01, reset game
-      //else only reset user pattern
+  },
+  endPlayerTurn: function endPlayerTurn() {
+    // remove event listeners from pads (??)
   },
   //takes in an array which is the pattern to play, plays corresponding pads/sounds,
   playPattern: function playPattern(padNumbers) {
@@ -104,9 +95,9 @@ const Game = {
 
 const Pad = {
   //play the pad (light it up and make the accompanying sound)
-  play: function play(num) {
-    const sound = document.querySelector(`audio[data-sound="${num}"]`);
-    const pad = document.querySelector(`div[data-pad="${num}"]`);
+  play: function play(padNumber) {
+    const sound = document.querySelector(`audio[data-sound="${padNumber}"]`);
+    const pad = document.querySelector(`div[data-pad="${padNumber}"]`);
 
     if (!sound || !pad) return; //if number is invalid, stop the function from running altogether
 
@@ -117,10 +108,20 @@ const Pad = {
 
     Pad.revertToNormal(); //after the pad does it's thing, revert it back to normal
   },
-  errorSound: function errorSound() {
-    // const sound = document.querySelector(); //find error sound to load
-    // sound.play();
-    console.log("Error! Wrong pad.");
+  wrongPad: function wrongPad(padNumber) {
+    const sound = document.querySelector(`audio[data-sound="err"]`); //get error sound from html
+    const pad = document.querySelector(`div[data-pad="${padNumber}"]`); //get pad
+
+    pad.classList.add('playing'); //light the pad up
+    sound.play(); //play error sound
+    
+    UI.errorDisplay(); //display "!!" in count
+    setTimeout(() => UI.updateCountDisplay(), 1000);
+
+    //if strict mode, reset count to 01, reset game
+    //else only reset user pattern
+
+    console.log("Error! Wrong pad. Start from beginning of current sequence.");
   },
   //revert the pad back to its normal size and color (remove the "playing" class)
   revertToNormal: function revertToNormal() {

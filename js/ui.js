@@ -1,3 +1,5 @@
+//TODO: Change confusing className if statements to "toggle"
+
 const UI = {
   switchToggle: document.querySelector(".switch"),
   switchBlock: document.querySelector(".switch-block"),
@@ -40,6 +42,9 @@ const UI = {
     } else {
       UI.countDisplay.innerHTML = Game.count.toString();
     }
+  },
+  errorDisplay: function errorDisplay() {
+    UI.countDisplay.innerHTML = "!!";
   },
   //make the start button clickable
   activateStartButton: function activateStartButton() {
