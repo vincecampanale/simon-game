@@ -49,7 +49,7 @@ const Game = {
           Game.restartPlayerTurn(); // if not strict mode, just restart the current turn (don't reset count)
         } else {
           Pad.wrongPad(padNumber);
-          setTimeout(() => Game.restartGame(), 1000); //if strict mode, reset count to 01, restart game
+          setTimeout(() => Game.restartGame(), 2000); //if strict mode, reset count to 01, restart game
         }
       }
     }
@@ -82,10 +82,6 @@ const Game = {
   generateRandomNumber: function generateRandomNumber() {
     const randomNumber = Math.floor(Math.random() * 4) + 1; //pick integer between 1 and 4
     return randomNumber;
-  },
-  //(only fires when strict mode is toggled) when the user makes an error, set count to 1 and start over
-  strictModeError: function strictModeError() {
-
   },
   restartPlayerTurn: function restartPlayerTurn() {
     Game.playerPattern = [];
