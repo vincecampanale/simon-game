@@ -23,7 +23,7 @@ const UI = {
         UI.loadCountDisplay();
         Game.status = "off";
         UI.strictLED.className = "led";
-        Game.reset();
+        Game.off();
       }
     });
   },
@@ -69,5 +69,6 @@ const UI = {
     } else {
       UI.strictLED.className = "led";
     }
+    Game.strictMode = !Game.strictMode;
   }
 }

@@ -11,7 +11,7 @@ const Game = {
   start: function start() {
     UI.deactivateStartButton();
     Game.incrementCount(); //increment the count to 1
-    Game.gamePattern.push(Game.generateRandomNumber()); //generate a random number and load that number into the pattern (Game.generateRandomNumber())
+    Game.gamePattern.push(Game.generateRandomNumber()); //generate a random number and load that number into the pattern
     Game.playPattern(Game.gamePattern);
     Game.playerTurn(); //TODO: Set timeout so this doesn't run until playPattern function is completed
   },
@@ -49,7 +49,7 @@ const Game = {
           Game.restartPlayerTurn(); // if not strict mode, just restart the current turn (don't reset count)
         } else {
           Pad.wrongPad(padNumber);
-          Game.restartGame(); //if strict mode, reset count to 01, restart game
+          setTimeout(() => Game.restartGame(), 1000); //if strict mode, reset count to 01, restart game
         }
       }
     }
@@ -89,10 +89,21 @@ const Game = {
   },
   restartPlayerTurn: function restartPlayerTurn() {
     Game.playerPattern = [];
-    Game.currentIndex=-1;
+    Game.currentIndex= -1;
+    console.log("Wrong pad! Start from beginning of current sequence.");
+  },
+  restartGame: function restartGame() {
+    Game.count = 0;
+    Game.playerPattern = [];
+    Game.gamePattern = [];
+    Game.currentIndex = -1;
+    console.log("Wrong pad! Starting over...");
+    Game.incrementCount(); //increment the count to 1
+    Game.gamePattern.push(Game.generateRandomNumber()); //generate a random number and load that number into the pattern
+    Game.playPattern(Game.gamePattern);
   },
   //reset the game entirely (only fires when off button is clicked)
-  reset: function reset() {
+  off: function off() {
     UI.strictLED.className = "led"; //turn off strictLED light
     Game.count = 0; //set count back to 0
     Game.playerPattern = []; //clear player pattern
@@ -125,8 +136,6 @@ const Pad = {
 
     UI.errorDisplay(); //display "!!" in count
     setTimeout(() => UI.updateCountDisplay(), 1000);
-
-    console.log("Wrong pad! Start from beginning of current sequence.");
   },
   //revert the pad back to its normal size and color (remove the "playing" class)
   revertToNormal: function revertToNormal() {
