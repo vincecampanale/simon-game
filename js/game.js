@@ -44,14 +44,13 @@ const Game = {
           // TODO: (unless gamePattern.length > 20 ==> in that case, reset the game and create "Congratulations! You win!" window)
         }
       } else {
-        Game.playerPattern.pop(); //pop most recent pad number off of playerPattern
-        Pad.wrongPad(padNumber); // if incorrect pad, play the error sound, display "!!" in count
-        //restart player turn
-        Game.playerPattern = [];
-        Game.currentIndex=-1;
-        //if strict mode, reset count to 01, reset game
-        //else only reset user pattern
-        //check for strict mode -- if strict mode, restart game.
+        if(!Game.strictMode){
+          Pad.wrongPad(padNumber); // if incorrect pad, play the error sound, display "!!" in countDisplay
+          Game.restartPlayerTurn(); // if not strict mode, just restart the current turn (don't reset count)
+        } else {
+          Pad.wrongPad(padNumber);
+          Game.restartGame(); //if strict mode, reset count to 01, restart game
+        }
       }
     }
   },
@@ -88,6 +87,10 @@ const Game = {
   strictModeError: function strictModeError() {
 
   },
+  restartPlayerTurn: function restartPlayerTurn() {
+    Game.playerPattern = [];
+    Game.currentIndex=-1;
+  },
   //reset the game entirely (only fires when off button is clicked)
   reset: function reset() {
     UI.strictLED.className = "led"; //turn off strictLED light
@@ -123,7 +126,7 @@ const Pad = {
     UI.errorDisplay(); //display "!!" in count
     setTimeout(() => UI.updateCountDisplay(), 1000);
 
-    console.log("Error! Wrong pad. Start from beginning of current sequence.");
+    console.log("Wrong pad! Start from beginning of current sequence.");
   },
   //revert the pad back to its normal size and color (remove the "playing" class)
   revertToNormal: function revertToNormal() {
