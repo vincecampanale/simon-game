@@ -46,6 +46,11 @@ const Game = {
       } else {
         Game.playerPattern.pop(); //pop most recent pad number off of playerPattern
         Pad.wrongPad(padNumber); // if incorrect pad, play the error sound, display "!!" in count
+        //restart player turn
+        Game.playerPattern = [];
+        Game.currentIndex=-1;
+        //if strict mode, reset count to 01, reset game
+        //else only reset user pattern
         //check for strict mode -- if strict mode, restart game.
       }
     }
@@ -114,12 +119,9 @@ const Pad = {
 
     pad.classList.add('playing'); //light the pad up
     sound.play(); //play error sound
-    
+
     UI.errorDisplay(); //display "!!" in count
     setTimeout(() => UI.updateCountDisplay(), 1000);
-
-    //if strict mode, reset count to 01, reset game
-    //else only reset user pattern
 
     console.log("Error! Wrong pad. Start from beginning of current sequence.");
   },
