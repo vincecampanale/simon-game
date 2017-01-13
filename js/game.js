@@ -49,7 +49,7 @@ const Game = {
           Game.restartPlayerTurn(); // if not strict mode, just restart the current turn (don't reset count)
         } else {
           Pad.wrongPad(padNumber);
-          setTimeout(() => Game.restartGame(), 2000); //if strict mode, reset count to 01, restart game
+          setTimeout(() => Game.restartGame(), 1200); //if strict mode, reset count to 01, restart game
         }
       }
     }
