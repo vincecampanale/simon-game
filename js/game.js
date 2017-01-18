@@ -49,7 +49,8 @@ const Game = {
           Game.restartPlayerTurn(); // if not strict mode, just restart the current turn (don't reset count)
         } else {
           Pad.wrongPad(padNumber);
-          setTimeout(() => Game.restartGame(), 1200); //if strict mode, reset count to 01, restart game
+          setTimeout(() => Game.restartGame(), 500); //if strict mode, reset count to 01, restart game
+          setTimeout(() => Game.playPattern(Game.gamePattern), 1500);
         }
       }
     }
@@ -87,6 +88,8 @@ const Game = {
     Game.playerPattern = [];
     Game.currentIndex= -1;
     console.log("Wrong pad! Start from beginning of current sequence.");
+    console.log(Game.gamePattern);
+    setTimeout(() => Game.playPattern(Game.gamePattern), 1000);
   },
   restartGame: function restartGame() {
     Game.count = 0;
@@ -96,7 +99,6 @@ const Game = {
     console.log("Wrong pad! Starting over...");
     Game.incrementCount(); //increment the count to 1
     Game.gamePattern.push(Game.generateRandomNumber()); //generate a random number and load that number into the pattern
-    Game.playPattern(Game.gamePattern);
   },
   //reset the game entirely (only fires when off button is clicked)
   off: function off() {
