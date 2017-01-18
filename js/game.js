@@ -50,7 +50,7 @@ const Game = {
         } else {
           Pad.wrongPad(padNumber);
           setTimeout(() => Game.restartGame(), 500); //if strict mode, reset count to 01, restart game
-          setTimeout(() => Game.playPattern(Game.gamePattern), 1500);
+          setTimeout(() => Game.playPattern(Game.gamePattern), 1000);
         }
       }
     }
