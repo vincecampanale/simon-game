@@ -19,6 +19,9 @@ const Game = {
     Game.count++;
     UI.updateCountDisplay();
   },
+  isOver: function isOver() {
+    return Game.gamePattern.length > 20 ? true : false;
+  },
   //allows user to click pads and compare their clicks to the game pattern
   playerTurn: function playerTurn() {
     //add click event listeners to all the pads
@@ -35,13 +38,16 @@ const Game = {
       Game.currentIndex++; //increment index
       if (Game.playerPattern[Game.currentIndex] == Game.gamePattern[Game.currentIndex]) { //if playerPattern matches gamePattern at current index
         Pad.play(padNumber); //play the pad
-        if (Game.playerPattern.length === Game.gamePattern.length) { //if the player has completed the game pattern
+        if (Game.playerPattern.length === Game.gamePattern.length && !Game.isOver()) { //if the player has completed the game pattern
           setTimeout(() => Game.incrementCount(), 500); //pause for a moment before incrementing the count
           Game.gamePattern.push(Game.generateRandomNumber()); //add new pad to game pattern
           Game.playerPattern = []; //reset player pattern
-          Game.currentIndex = -1;
+          Game.currentIndex = -1; //reset current index
           setTimeout(() => Game.playPattern(Game.gamePattern), 1250); //wait 1250ms, then play the new game pattern
-          // TODO: (unless gamePattern.length > 20 ==> in that case, reset the game and create "Congratulations! You win!" window)
+        } else if (Game.isOver()) { //if the game is over
+          console.log("Congratulations! You win!"); //log "You win to the console"
+          setTimeout(() => Game.restartGame(), 500); //start the game over
+          setTimeout(() => Game.playPattern(Game.gamePattern), 1000); //play a new pattern
         }
       } else {
         if(!Game.strictMode){
@@ -54,9 +60,6 @@ const Game = {
         }
       }
     }
-  },
-  endPlayerTurn: function endPlayerTurn() {
-    // remove event listeners from pads (??)
   },
   //takes in an array which is the pattern to play, plays corresponding pads/sounds,
   playPattern: function playPattern(padNumbers) {
