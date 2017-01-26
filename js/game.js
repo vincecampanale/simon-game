@@ -1,5 +1,4 @@
 //TODO: Toggle clickability
-
 const Game = {
   //Properties
   status: "off", //game starts out as off
@@ -61,13 +60,16 @@ const Game = {
       }
     }
   },
+  endPlayerTurn() {
+    const pads = document.querySelectorAll('.pad');
+    pads.forEach(pad => pad.removeEventListener('click', handleClick));
+  },
   //takes in an array which is the pattern to play, plays corresponding pads/sounds,
   playPattern: function playPattern(padNumbers) {
     const interval = Game.setInterval(padNumbers.length);
     padNumbers.forEach(function(padNumber, index) {
       setTimeout(Pad.play.bind(null, padNumber), index * interval);
     });
-    //after the pattern plays, listen for the player's input
   },
   //set interval in between each sound/light based on the length of the pattern array
   setInterval: function setInterval(patternLength) {
@@ -89,7 +91,7 @@ const Game = {
   },
   restartPlayerTurn: function restartPlayerTurn() {
     Game.playerPattern = [];
-    Game.currentIndex= -1;
+    Game.currentIndex = -1;
     console.log("Wrong pad! Start from beginning of current sequence.");
     console.log(Game.gamePattern);
     setTimeout(() => Game.playPattern(Game.gamePattern), 1000);
@@ -109,6 +111,6 @@ const Game = {
     Game.count = 0; //set count back to 0
     Game.playerPattern = []; //clear player pattern
     Game.gamePattern = []; //clear game pattern
-    Game.currentIndex = -1;
+    Game.currentIndex = -1; //reset index
   }
 }
