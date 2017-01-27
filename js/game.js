@@ -7,6 +7,7 @@ const Game = {
   gamePattern: [], //initialize to empty array
   playerPattern: [], //initialize to empty array
   currentIndex: -1, //the index to compare the player's click to (initialize at -1 bc first click will update to index 0)
+  timeouts: [], //dummy array to hold timeouts
   start: function start() {
     UI.deactivateStartButton();
     Game.incrementCount(); //increment the count to 1
@@ -43,6 +44,7 @@ const Game = {
           Game.playerPattern = []; //reset player pattern
           Game.currentIndex = -1; //reset current index
           setTimeout(() => Game.playPattern(Game.gamePattern), 1250); //wait 1250ms, then play the new game pattern
+/*TROUBLESHOOTING*/console.log(Game.playerPattern);
         } else if (Game.isOver()) { //if the game is over
           console.log("Congratulations! You win!"); //log "You win to the console"
           setTimeout(() => Game.restartGame(), 500); //start the game over
@@ -68,8 +70,14 @@ const Game = {
   playPattern: function playPattern(padNumbers) {
     const interval = Game.setInterval(padNumbers.length);
     padNumbers.forEach(function(padNumber, index) {
-      setTimeout(Pad.play.bind(null, padNumber), index * interval);
+      let curTimeout = setTimeout(Pad.play.bind(null, padNumber), index * interval)
+      Game.timeouts.push(curTimeout);
     });
+    /*TROUBLESHOOTING*/console.log("At start of computer playing: " + Game.playerPattern);
+  },
+  stopPlayingPattern() {
+    const timeouts = Game.timeouts;
+    timeouts.forEach(timeout => clearTimeout(timeout));
   },
   //set interval in between each sound/light based on the length of the pattern array
   setInterval: function setInterval(patternLength) {
@@ -107,6 +115,7 @@ const Game = {
   },
   //reset the game entirely (only fires when off button is clicked)
   off: function off() {
+    Game.stopPlayingPattern();
     UI.strictLED.className = "led"; //turn off strictLED light
     Game.count = 0; //set count back to 0
     Game.playerPattern = []; //clear player pattern
