@@ -8,22 +8,22 @@ const Game = {
   playerPattern: [], //initialize to empty array
   currentIndex: -1, //the index to compare the player's click to (initialize at -1 bc first click will update to index 0)
   timeouts: [], //dummy array to hold timeouts
-  start: function start() {
+  start() {
     UI.deactivateStartButton();
     Game.incrementCount(); //increment the count to 1
     Game.gamePattern.push(Game.generateRandomNumber()); //generate a random number and load that number into the pattern
     Game.playPattern(Game.gamePattern);
     Game.playerTurn(); //TODO: Set timeout so this doesn't run until playPattern function is completed
   },
-  incrementCount: function incrementCount() {
+  incrementCount() {
     Game.count++;
     UI.updateCountDisplay();
   },
-  isOver: function isOver() {
+  isOver() {
     return Game.gamePattern.length > 20 ? true : false;
   },
   //allows user to click pads and compare their clicks to the game pattern
-  playerTurn: function playerTurn() {
+  playerTurn() {
     //add click event listeners to all the pads
     const pads = document.querySelectorAll('.pad');
     pads.forEach(pad => pad.addEventListener('click', handleClick));
@@ -44,7 +44,6 @@ const Game = {
           Game.playerPattern = []; //reset player pattern
           Game.currentIndex = -1; //reset current index
           setTimeout(() => Game.playPattern(Game.gamePattern), 1250); //wait 1250ms, then play the new game pattern
-/*TROUBLESHOOTING*/console.log(Game.playerPattern);
         } else if (Game.isOver()) { //if the game is over
           console.log("Congratulations! You win!"); //log "You win to the console"
           setTimeout(() => Game.restartGame(), 500); //start the game over
@@ -64,7 +63,7 @@ const Game = {
   },
   endPlayerTurn() {
     const pads = document.querySelectorAll('.pad');
-    pads.forEach(pad => { //TODO: Comment this code. 
+    pads.forEach(pad => { //TODO: Comment this code.
       let clone = pad.cloneNode();
       while (pad.firstChild) {
         clone.appendChild(pad.lastChild);
@@ -73,20 +72,19 @@ const Game = {
     });
   },
   //takes in an array which is the pattern to play, plays corresponding pads/sounds,
-  playPattern: function playPattern(padNumbers) {
+  playPattern(padNumbers) {
     const interval = Game.setInterval(padNumbers.length);
     padNumbers.forEach(function(padNumber, index) {
       let curTimeout = setTimeout(Pad.play.bind(null, padNumber), index * interval)
       Game.timeouts.push(curTimeout);
     });
-    /*TROUBLESHOOTING*/console.log("At start of computer playing: " + Game.playerPattern);
   },
   stopPlayingPattern() {
     const timeouts = Game.timeouts;
     timeouts.forEach(timeout => clearTimeout(timeout));
   },
   //set interval in between each sound/light based on the length of the pattern array
-  setInterval: function setInterval(patternLength) {
+  setInterval(patternLength) {
     const intervalLengths = [1000, 750, 500, 250];
     if(patternLength > 12) {
       return intervalLengths[3];
@@ -99,18 +97,18 @@ const Game = {
     }
   },
   //return a random integer between 1 and 4
-  generateRandomNumber: function generateRandomNumber() {
+  generateRandomNumber() {
     const randomNumber = Math.floor(Math.random() * 4) + 1; //pick integer between 1 and 4
     return randomNumber;
   },
-  restartPlayerTurn: function restartPlayerTurn() {
+  restartPlayerTurn() {
     Game.playerPattern = [];
     Game.currentIndex = -1;
     console.log("Wrong pad! Start from beginning of current sequence.");
     console.log(Game.gamePattern);
     setTimeout(() => Game.playPattern(Game.gamePattern), 1000);
   },
-  restartGame: function restartGame() {
+  restartGame() {
     Game.count = 0;
     Game.playerPattern = [];
     Game.gamePattern = [];
@@ -120,7 +118,7 @@ const Game = {
     Game.gamePattern.push(Game.generateRandomNumber()); //generate a random number and load that number into the pattern
   },
   //reset the game entirely (only fires when off button is clicked)
-  off: function off() {
+  off() {
     Game.stopPlayingPattern(); //clear all the timeouts so pattern stops playing
     Game.endPlayerTurn(); //end the player's turn
 
