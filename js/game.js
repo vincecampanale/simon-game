@@ -64,7 +64,13 @@ const Game = {
   },
   endPlayerTurn() {
     const pads = document.querySelectorAll('.pad');
-    pads.forEach(pad => pad.removeEventListener('click', handleClick));
+    pads.forEach(pad => {
+      let clone = pad.cloneNode();
+      while (pad.firstChild) {
+        clone.appendChild(pad.lastChild);
+      }
+      pad.parentNode.replaceChild(clone, pad);
+    });
   },
   //takes in an array which is the pattern to play, plays corresponding pads/sounds,
   playPattern: function playPattern(padNumbers) {
@@ -115,7 +121,9 @@ const Game = {
   },
   //reset the game entirely (only fires when off button is clicked)
   off: function off() {
-    Game.stopPlayingPattern();
+    Game.stopPlayingPattern(); //clear all the timeouts so pattern stops playing
+    Game.endPlayerTurn(); //end the player's turn
+
     UI.strictLED.className = "led"; //turn off strictLED light
     Game.count = 0; //set count back to 0
     Game.playerPattern = []; //clear player pattern
