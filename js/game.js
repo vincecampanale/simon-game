@@ -1,4 +1,6 @@
 //TODO: Toggle clickability
+//TODO: Remove event listener from start button when the game is playing.
+
 const Game = {
   //Properties
   status: "off", //game starts out as off
