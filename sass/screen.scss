@@ -137,9 +137,15 @@ html{
   @include corner-border(bottom-right, 100%);
 }
 
+
+body > p {
+  text-align: center;
+}
+
 //////////////////
 //CENTER CONSOLE//
 //////////////////
+// Credit goes to Emanuele Antonelli for most of the styling of the center console - thanks Emanuele!
 .control-center {
   position: absolute;
   width: 50%;
@@ -270,8 +276,6 @@ html{
 .bottom.row{
   margin-top: 24px;
 }
-// Credit goes to Emanuele Antonelli for most of the styling of the center console - thanks Emanuele!
-
 
 
 //Can I click a thing or nah?
