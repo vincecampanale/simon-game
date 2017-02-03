@@ -64,7 +64,7 @@ const Game = {
   },
   endPlayerTurn() {
     const pads = document.querySelectorAll('.pad');
-    pads.forEach(pad => {
+    pads.forEach(pad => { //TODO: Comment this code. 
       let clone = pad.cloneNode();
       while (pad.firstChild) {
         clone.appendChild(pad.lastChild);
