@@ -3,7 +3,7 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 @import url("https://fonts.googleapis.com/css?family=Alfa+Slab+One|VT323|Oswald");
-/* line 5, ../../../../.rvm/gems/ruby-2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -25,45 +25,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../.rvm/gems/ruby-2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../.rvm/gems/ruby-2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../.rvm/gems/ruby-2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../.rvm/gems/ruby-2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../.rvm/gems/ruby-2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../.rvm/gems/ruby-2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../.rvm/gems/ruby-2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../.rvm/gems/ruby-2.4.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../.rvm/gems/ruby-2.0.0-p648@railstutorial_rails_4_0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -191,7 +191,12 @@ html {
   border-bottom-right-radius: 100%;
 }
 
-/* line 143, ../sass/screen.scss */
+/* line 141, ../sass/screen.scss */
+body > p {
+  text-align: center;
+}
+
+/* line 149, ../sass/screen.scss */
 .control-center {
   position: absolute;
   width: 50%;
@@ -209,32 +214,32 @@ html {
   border-radius: 100%;
 }
 
-/* line 158, ../sass/screen.scss */
+/* line 164, ../sass/screen.scss */
 .brand {
   font-family: 'Alfa Slab One', cursive;
   color: #222;
   font-size: 3.2em;
   margin-top: 35px;
 }
-/* line 163, ../sass/screen.scss */
+/* line 169, ../sass/screen.scss */
 .brand .small {
   font-size: 0.3em;
   position: relative;
   top: -20px;
 }
 
-/* line 170, ../sass/screen.scss */
+/* line 176, ../sass/screen.scss */
 .row {
   margin-top: 10px;
 }
 
-/* line 174, ../sass/screen.scss */
+/* line 180, ../sass/screen.scss */
 .count-container {
   position: relative;
   margin-right: 10px;
 }
 
-/* line 178, ../sass/screen.scss */
+/* line 184, ../sass/screen.scss */
 .count-display {
   font-family: 'VT323', monospace;
   color: #DC0D29;
@@ -252,12 +257,12 @@ html {
   border-radius: 20%;
 }
 
-/* line 193, ../sass/screen.scss */
+/* line 199, ../sass/screen.scss */
 .btn-container {
   margin-left: 10px;
 }
 
-/* line 196, ../sass/screen.scss */
+/* line 202, ../sass/screen.scss */
 .small-btn, .start-btn, .strict-btn {
   position: relative;
   box-sizing: border-box;
@@ -289,7 +294,7 @@ html {
   box-shadow: 2px 3px 1px #222;
 }
 
-/* line 206, ../sass/screen.scss */
+/* line 212, ../sass/screen.scss */
 .small-btn:active, .start-btn:active, .strict-btn:active {
   -webkit-box-shadow: 1px 0px 1px #222;
   -moz-box-shadow: 1px 0px 1px #222;
@@ -300,17 +305,17 @@ html {
   transform: translate(2px, 2px);
 }
 
-/* line 211, ../sass/screen.scss */
+/* line 217, ../sass/screen.scss */
 .start-btn {
   background-color: #FF4136;
 }
 
-/* line 215, ../sass/screen.scss */
+/* line 221, ../sass/screen.scss */
 .strict-btn {
   background-color: #FFDC00;
 }
 
-/* line 221, ../sass/screen.scss */
+/* line 227, ../sass/screen.scss */
 .label, .count-label, .start-label, .strict-label, .off-label, .on-label {
   position: relative;
   color: #222;
@@ -320,7 +325,7 @@ html {
   text-align: center;
 }
 
-/* line 234, ../sass/screen.scss */
+/* line 240, ../sass/screen.scss */
 .led {
   position: relative;
   margin: 5px auto auto auto;
@@ -335,12 +340,12 @@ html {
   border-radius: 100%;
 }
 
-/* line 244, ../sass/screen.scss */
+/* line 250, ../sass/screen.scss */
 .led.led-on {
   background-color: #DC0D29;
 }
 
-/* line 249, ../sass/screen.scss */
+/* line 255, ../sass/screen.scss */
 .switch {
   position: relative;
   width: 36px;
@@ -353,7 +358,7 @@ html {
   border-radius: 12%;
 }
 
-/* line 257, ../sass/screen.scss */
+/* line 263, ../sass/screen.scss */
 .switch-block {
   position: relative;
   width: 18px;
@@ -368,29 +373,29 @@ html {
   border-radius: 12%;
 }
 
-/* line 267, ../sass/screen.scss */
+/* line 273, ../sass/screen.scss */
 .switch-block.toggled {
   margin-left: 17px;
 }
 
-/* line 270, ../sass/screen.scss */
+/* line 276, ../sass/screen.scss */
 .bottom.row {
   margin-top: 24px;
 }
 
-/* line 277, ../sass/screen.scss */
+/* line 282, ../sass/screen.scss */
 .clickable {
   pointer-events: auto;
   cursor: pointer;
 }
 
-/* line 281, ../sass/screen.scss */
+/* line 286, ../sass/screen.scss */
 .unclickable {
   pointer-events: none;
 }
 
 @media screen and (max-width: 500px) {
-  /* line 288, ../sass/screen.scss */
+  /* line 293, ../sass/screen.scss */
   .wrap {
     top: 40px;
     -moz-transform: scale(0.6);
