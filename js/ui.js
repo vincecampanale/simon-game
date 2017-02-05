@@ -8,7 +8,7 @@ const UI = {
   strictButton: document.querySelector(".strict-btn"),
   strictLED: document.querySelector(".led"),
   //toggle the power switch to on or off on click
-  powerSwitch: function powerSwitch() {
+  powerSwitch() {
     UI.switchToggle.addEventListener("click", function() {
       if(UI.switchBlock.className === "switch-block"){
         UI.switchBlock.className = "switch-block toggled";
@@ -28,7 +28,7 @@ const UI = {
     });
   },
   //load default count display values
-  loadCountDisplay: function loadCountDisplay() {
+  loadCountDisplay() {
     if(UI.switchBlock.className === "switch-block") {
       UI.countDisplay.innerHTML = "  ";
     } else {
@@ -36,34 +36,34 @@ const UI = {
     }
   },
   //update the count display to equal the value of count
-  updateCountDisplay: function updateCountDisplay() {
+  updateCountDisplay() {
     if(Game.count < 10){
       UI.countDisplay.innerHTML = "0" + Game.count;
     } else {
       UI.countDisplay.innerHTML = Game.count.toString();
     }
   },
-  errorDisplay: function errorDisplay() {
+  errorDisplay() {
     UI.countDisplay.innerHTML = "!!";
   },
   //make the start button clickable
-  activateStartButton: function activateStartButton() {
+  activateStartButton() {
     UI.startButton.addEventListener("click", Game.start);
   },
   //do not allow the start button to be clicked
-  deactivateStartButton: function deactivateStartButton() {
+  deactivateStartButton() {
     UI.startButton.removeEventListener("click", Game.start);
   },
   //allow the strict button to be clicked
-  activateStrictButton: function activateStrictButton() {
+  activateStrictButton() {
     UI.strictButton.addEventListener("click", UI.toggleStrictLED);
   },
   //deactivate the strict button
-  deactivateStrictButton: function deactivateStrictButton() {
+  deactivateStrictButton() {
     UI.strictButton.removeEventListener("click", UI.toggleStrictLED);
   },
   //turn on/off the LED above strict button
-  toggleStrictLED: function toggleStrictLED() {
+  toggleStrictLED() {
     if(UI.strictLED.className === "led"){
       UI.strictLED.className = "led led-on";
     } else {
