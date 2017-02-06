@@ -49,7 +49,7 @@ const Game = {
         } else if (Game.isOver()) { //if the game is over
           console.log("Congratulations! You win!"); //log "You win to the console"
           setTimeout(() => Game.restartGame(), 500); //start the game over
-          setTimeout(() => Game.playPattern(Game.gamePattern), 1000); //play a new pattern
+          setTimeout(() => Game.playPattern(Game.gamePattern), 1250); //play a new pattern
         }
       } else {
         if(!Game.strictMode){
