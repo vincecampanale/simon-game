@@ -1,7 +1,5 @@
 User Stories:
 
-TODO: Create announcement box to tell user when it is their turn or when they win. 
-
 [COMPLETE] User Story 1: I am presented with a random series of button presses.
 
 [COMPLETE] User Story 2: Each time I input a series of button presses correctly, I see the same series of button presses but with an additional step.
